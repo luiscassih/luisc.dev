@@ -1,0 +1,29 @@
+---
+export interface Props {
+  class: string;
+}
+
+const { class: style } = Astro.props;
+---
+
+<div class={style}>
+  <ul class="flex flex-1 list-none gap-x-2 topbar-menu">
+    <li>About</li>
+    <li>Tech Stack</li>
+    <li>Works</li>
+    <li>Blog</li>
+    <li>Contact</li>
+  </ul>
+  <ul class="justify-self-end">
+    <li>Dark</li>
+  </ul>
+</div>
+<style lang="scss">
+  .topbar-menu {
+    li {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+</style>

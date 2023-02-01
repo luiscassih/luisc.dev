@@ -20,16 +20,23 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
+	@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		/* --accent: 124, 58, 237; */
+		--accent: 2 108 214;
+		--accent-gradient: linear-gradient(45deg, #a9d4ff, #026cd6 99.63%);
+		/* rgb(var(--accent)), */ /* #da62c4 30%, */ /* white 60% */
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
+		font-family: "Source Sans Pro";
+		background-color: #f6f6f6;
+		background: linear-gradient(180deg, #0f0f0f 0%, #00152b 100%);
+		background-repeat: no-repeat;
+		height: 100%;
+		color: white;
 	}
 	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 	}
 </style>
