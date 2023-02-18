@@ -7,12 +7,114 @@ const { class: style } = Astro.props;
 ---
 
 <div class={style}>
-  <ul class="flex flex-1 list-none gap-x-2 topbar-menu">
-    <li>About</li>
-    <li>Tech Stack</li>
-    <li>Works</li>
-    <li>Blog</li>
-    <li>Contact</li>
+  <ul
+    class="flex flex-1 list-none gap-x-2 topbar-menu [&>li:not(:last-child)]:mr-5"
+  >
+    <li>
+      <div>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 20H4C2.93052 20.032 2.03642 19.1933 2 18.124V5.875C2.03641 4.80581 2.93068 3.96743 4 4H20C21.0693 3.96743 21.9636 4.80581 22 5.875V18.125C21.963 19.1939 21.0691 20.032 20 20ZM4 6V17.989L20 18V6.011L4 6ZM13.43 16H6C6.07353 15.1721 6.46534 14.4049 7.093 13.86C7.79183 13.1667 8.73081 12.7692 9.715 12.75C10.6992 12.7692 11.6382 13.1667 12.337 13.86C12.9645 14.4051 13.3563 15.1721 13.43 16ZM18 15H15V13H18V15ZM9.715 12C9.17907 12.0186 8.65947 11.8139 8.28029 11.4347C7.9011 11.0555 7.69638 10.5359 7.715 10C7.69668 9.46416 7.9015 8.94474 8.28062 8.56562C8.65974 8.1865 9.17916 7.98168 9.715 8C10.2508 7.98168 10.7703 8.1865 11.1494 8.56562C11.5285 8.94474 11.7333 9.46416 11.715 10C11.7336 10.5359 11.5289 11.0555 11.1497 11.4347C10.7705 11.8139 10.2509 12.0186 9.715 12ZM18 11H14V9H18V11Z"
+            fill="#026CD6"></path>
+        </svg>
+      </div>About
+    </li>
+    <li>
+      <div>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 21.135L3 14.135L4.62 12.875L11.99 18.605L19.37 12.865L21 14.135L12 21.135ZM12 16.865L4.63 11.135L3 9.86499L12 2.86499L21 9.86499L19.36 11.135L12 16.865Z"
+            fill="#026CD6"></path>
+        </svg>
+      </div>Tech Stack
+    </li>
+    <li>
+      <div>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.01 18.02L2 12.01L8.01 6L9.425 7.414L4.825 12.014L9.425 16.614L8.011 18.02H8.01ZM15.989 18.02L14.576 16.607L19.176 12.007L14.576 7.407L15.99 6L22 12.01L15.99 18.02H15.989Z"
+            fill="#026CD6"></path>
+        </svg>
+      </div>Works
+    </li>
+    <li>
+      <div>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_109_21)">
+            <path
+              d="M3 6C3 5.46957 3.21071 4.96086 3.58579 4.58579C3.96086 4.21071 4.46957 4 5 4H19C19.5304 4 20.0391 4.21071 20.4142 4.58579C20.7893 4.96086 21 5.46957 21 6V18C21 18.5304 20.7893 19.0391 20.4142 19.4142C20.0391 19.7893 19.5304 20 19 20H5C4.46957 20 3.96086 19.7893 3.58579 19.4142C3.21071 19.0391 3 18.5304 3 18V6Z"
+              stroke="#026CD6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M7 8H17"
+              stroke="#026CD6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M7 12H17"
+              stroke="#026CD6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <path
+              d="M7 16H17"
+              stroke="#026CD6"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_109_21">
+              <rect width="24" height="24" fill="white"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      Blog
+    </li>
+    <li>
+      <div>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 20H4C2.89543 20 2 19.1046 2 18V5.913C2.04661 4.84255 2.92853 3.99899 4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20ZM4 7.868V18H20V7.868L12 13.2L4 7.868ZM4.8 6L12 10.8L19.2 6H4.8Z"
+            fill="#026CD6"></path>
+        </svg>
+      </div>
+      Contact
+    </li>
   </ul>
   <ul class="justify-self-end">
     <li>Dark</li>
@@ -21,8 +123,12 @@ const { class: style } = Astro.props;
 <style lang="scss">
   .topbar-menu {
     li {
+      display: flex;
       &:hover {
         cursor: pointer;
+      }
+      svg {
+        margin-right: 0.5rem;
       }
     }
   }
