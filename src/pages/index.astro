@@ -14,43 +14,64 @@ import NodejsIcon from "../assets/icons/nodejs.astro";
 import RustIcon from "../assets/icons/rust.astro";
 import VuejsIcon from "../assets/icons/vuejs.astro";
 
-const techStack = [
-  {
+enum Tech {
+  JS,
+  TS,
+  REACT,
+  WEBPACK,
+  TAILWIND,
+  JAVA,
+  NODEJS,
+  RUST,
+  VUE,
+}
+
+const TechStack = {
+  [Tech.JS]: {
     icon: JavascriptIcon,
     name: "Javascript"
   },
-  {
+  [Tech.TS]: {
     icon: TypescriptIcon,
     name: "Typescript"
   },
-  {
+  [Tech.REACT]: {
     icon: ReactJSIcon,
     name: "ReactJS",
   },
-  {
+  [Tech.WEBPACK]: {
     icon: WebpackIcon,
     name: "Webpack",
   },
-  {
+  [Tech.TAILWIND]: {
     icon: TailwindcssIcon,
     name: "Tailwindcss",
   },
-  {
+  [Tech.JAVA]: {
     icon: JavaIcon,
     name: "Java",
   },
-  {
+  [Tech.NODEJS]: {
     icon: NodejsIcon,
     name: "NodeJS",
   },
-  {
+  [Tech.RUST]: {
     icon: RustIcon,
     name: "Rust",
   },
-  {
+  [Tech.VUE]: {
     icon: VuejsIcon,
     name: "VueJS",
   },
+};
+
+const works = [
+  {
+    name: "MeLi Debug",
+    tag: "Chrome extension",
+    image: MeliDebugImg,
+    tech_stack: [Tech.TS]
+  }
 ];
 ---
 
@@ -143,9 +164,9 @@ const techStack = [
             d="M16 28.18L4 18.8467L6.16 17.1667L15.9867 24.8067L25.8267 17.1534L28 18.8467L16 28.18ZM16 22.4867L6.17333 14.8467L4 13.1533L16 3.82001L28 13.1533L25.8133 14.8467L16 22.4867Z"
             fill="currentcolor"></path>
         </svg>
-        <ul class="flex flex-wrap justify-center gap-12 mt-3">
+        <ul class="flex flex-wrap justify-center gap-12">
           {
-            techStack.map((s) => (
+            Object.values(TechStack).map((s) => (
               <li class="flex items-center">
                 <div class="mr-2">
                   <!-- <Fragment set:html={s.icon} /> -->
@@ -171,15 +192,16 @@ const techStack = [
             fill="currentcolor"></path>
         </svg>
         <ul class="flex flex-wrap gap-8 justify-center">
+        {works.map(w => (
           <li class="h-[300px] w-[300px] flex flex-col relative">
             <div class="absolute rounded-xl h-[100%] z-20 w-[100%]"></div>
             <div class="flex absolute h-[calc(100%-50px)] w-[100%] z-10">
               <div
                 class="flex flex-1 flex-col justify-end rounded-xl pl-5"
-                style={`background:  linear-gradient(to top, #010D19 0%, rgba(1, 13, 25, 0.5) 20%, rgba(1, 13, 25, 0.3) 30%,rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.3) 100%), url(${MeliDebugImg}); `}
+                style={`background:  linear-gradient(to top, #010D19 0%, rgba(1, 13, 25, 0.5) 20%, rgba(1, 13, 25, 0.3) 30%,rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.3) 100%), url(${w.image}); `}
               >
-                <div class="text-[1.625rem]">MeLi Debug</div>
-                <div class="text-xl font-light">Chrome extension</div>
+                <div class="text-[1.625rem]">{w.name}</div>
+                <div class="text-xl font-light">{w.tag}</div>
               </div>
             </div>
             <div
@@ -189,11 +211,14 @@ const techStack = [
               <ul
                 class="flex flex-1 items-center px-5 gap-3 [&>li>svg]:w-[30px] [&>li>svg]:h-[30px]"
               >
-                <li><JavascriptIcon /></li>
-                <li><JavascriptIcon /></li>
+                {w.tech_stack.map(t => {
+                  const Component = TechStack[t].icon;
+                  return <li><Component /></li>;
+                })}
               </ul>
             </div>
           </li>
+        ))}
         </ul>
       </Article>
     </section>
