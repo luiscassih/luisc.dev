@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Topbar from "../components/Topbar.astro";
 import Article from "../components/Article.astro";
 import MeliDebugImg from "../assets/images/MeliDebugApiInterceptor.png";
+import TiendaBebeImg from "../assets/images/tiendabebe.png";
+import GoUpIcon from "../assets/icons/GoUp.astro";
 
 import JavascriptIcon from "../assets/icons/javascript.astro";
 import TypescriptIcon from "../assets/icons/typescript.astro";
@@ -13,6 +15,8 @@ import JavaIcon from "../assets/icons/java.astro";
 import NodejsIcon from "../assets/icons/nodejs.astro";
 import RustIcon from "../assets/icons/rust.astro";
 import VuejsIcon from "../assets/icons/vuejs.astro";
+import Hover from "../components/Hover.astro";
+
 
 enum Tech {
   JS,
@@ -68,9 +72,17 @@ const TechStack = {
 const works = [
   {
     name: "MeLi Debug",
+    page: "meli-debug",
     tag: "Chrome extension",
     image: MeliDebugImg,
-    tech_stack: [Tech.TS]
+    tech_stack: [Tech.TS, Tech.REACT, Tech.WEBPACK]
+  },
+  {
+    name: "La Tienda del Bebe",
+    page: "tienda-del-bebe",
+    tag: "SSR isomorphic web",
+    image: TiendaBebeImg,
+    tech_stack: [Tech.TS, Tech.REACT, Tech.NODEJS, Tech.WEBPACK]
   }
 ];
 ---
@@ -111,7 +123,7 @@ const works = [
           <br />I'm a <span class="text-gradient">Software Developer</span>
         </h1>
       </div>
-      <div class="flex flex-col items-center">
+      <a href="#about" class="flex flex-col items-center">
         <div>Scroll to know about me</div>
         <div class="py-5">
           <svg
@@ -126,10 +138,10 @@ const works = [
               fill="#026CD6"></path>
           </svg>
         </div>
-      </div>
+      </a>
     </div>
     <section class="flex flex-col items-center">
-      <Article title="About">
+      <Article id="about" title="About">
         <svg
           slot="icon"
           width="32"
@@ -151,7 +163,7 @@ const works = [
           trying to find new techniques to make whatever I’m working better.
         </div>
       </Article>
-      <Article title="Tech Stack">
+      <Article id="stack" title="Tech Stack">
         <svg
           slot="icon"
           width="32"
@@ -178,7 +190,7 @@ const works = [
           }
         </ul>
       </Article>
-      <Article title="Works">
+      <Article title="Works" id="works">
         <svg
           slot="icon"
           width="32"
@@ -193,15 +205,18 @@ const works = [
         </svg>
         <ul class="flex flex-wrap gap-8 justify-center">
         {works.map(w => (
-          <li class="h-[300px] w-[300px] flex flex-col relative">
+          <Hover hoverClass="top-[20%] right-[50%] translate-x-[50%] z-50 bg-black bg-opacity-70">
+          <div slot="hover">Meli Debug</div>
+          <li class="h-[300px] w-[300px] flex flex-col relative hover:cursor-pointer transition-transform hover:outline-[#026CD6] hover:outline-2 hover:outline-dashed hover:rounded-xl">
+          <a href=`/works/${w.page}`>
             <div class="absolute rounded-xl h-[100%] z-20 w-[100%]"></div>
             <div class="flex absolute h-[calc(100%-50px)] w-[100%] z-10">
               <div
                 class="flex flex-1 flex-col justify-end rounded-xl pl-5"
-                style={`background:  linear-gradient(to top, #010D19 0%, rgba(1, 13, 25, 0.5) 20%, rgba(1, 13, 25, 0.3) 30%,rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.3) 100%), url(${w.image}); `}
+                style={`background: linear-gradient(to top, #010D19 0%, rgba(1, 13, 25, 0.50) 30%, rgba(1, 13, 25, 0.3) 40%,rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.3) 100%), url(${w.image}); background-size: contain;`}
               >
                 <div class="text-[1.625rem]">{w.name}</div>
-                <div class="text-xl font-light">{w.tag}</div>
+                <div class="text-xl font-light pb-2">{w.tag}</div>
               </div>
             </div>
             <div
@@ -217,14 +232,24 @@ const works = [
                 })}
               </ul>
             </div>
+          </a>
           </li>
+          </Hover>
         ))}
+
         </ul>
       </Article>
     </section>
+    <footer class="mt-52"></footer>
   </main>
-
+  <Hover class="GoUpHover !fixed bottom-5 right-5" hoverClass="top-[-50px] left-[-10px]">
+    <div slot="hover">Go Up</div>
+    <button id="scrollUpButton" class="flex cursor-pointer [&>svg]:h-14 [&>svg]:fill-white"><GoUpIcon /></button>
+  </Hover>
   <style>
+    html[data-scroll='0'] .GoUpHover {
+      display: none;
+    } 
     main {
       margin: 0;
     }
@@ -240,4 +265,11 @@ const works = [
       background-position: 0%;
     }
   </style>
+  <script>
+    const scrollUpButton = document.getElementById("scrollUpButton");
+    scrollUpButton?.addEventListener("click", () => scrollTo(0,0));
+    const storeScroll = () => (document.documentElement.dataset.scroll as Object) = window.scrollY;
+    document.addEventListener("scroll", storeScroll);
+    storeScroll();
+  </script>
 </Layout>
