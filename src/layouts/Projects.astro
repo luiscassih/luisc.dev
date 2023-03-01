@@ -1,0 +1,99 @@
+---
+import GoBack from "../assets/icons/GoBack.astro";
+import Hover from "../components/Hover.astro";
+import { Tech, TechStack } from "../pages/index.astro";
+
+export interface Props {
+  title: string;
+  image: string;
+  links: Link[];
+  techStack: Tech[];
+}
+
+export type Link = {
+  url: string;
+  icon: any;
+  label: string;
+};
+const { title, image, links, techStack } = Astro.props;
+---
+
+<div class="flex flex-col">
+  <header class="flex flex-col my-5">
+    <div class="flex mb-5">
+      <a
+        href="/#projects"
+        class="[&>svg]:fill-white hover:animate-pulse [&>svg]:w-8 ml-5 z-10"
+        ><GoBack /></a
+      >
+    </div>
+    <div class="flex justify-center">
+      <div
+        class="flex flex-col w-[1120px] h-[550px] items-end bg-no-repeat rounded-xl"
+        style=`background-image: url('${image}'); background-size: auto 450px;`
+      >
+        <svg
+          width="71"
+          height="69"
+          viewBox="0 0 71 69"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 4H67V65M13.3978 15.569H55.5138V56.2356"
+            stroke="white"
+            stroke-width="8"
+            stroke-linecap="round"
+            stroke-dasharray="16 16"></path>
+        </svg>
+        <div class="flex-1 flex flex-col items-center mr-36">
+          <div class="text-4xl mt-5">{title}</div>
+          <ul class="flex mt-9 gap-5">
+            {
+              techStack.map((t) => {
+                const tech = TechStack[t];
+                return (
+                  <li>
+                    <Hover>
+                      <div slot="hover">{tech.name}</div>
+                      <tech.icon />
+                    </Hover>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+        <div
+          class="w-[1000px] h-[270px] bg-neutral-800 border-2 border-neutral-700 rounded-lg drop-shadow-xl flex flex-col items-center p-9"
+        >
+          <span class="flex-1 text-2xl">
+            MeLi Debug is a chrome extension I made for one of my past job, it's
+            a tool to preview Components modifications in the frontend, by
+            intercepting both the server side rendering and all api calls. Then,
+            you can edit the view and override what's being rendered.
+          </span>
+          <ul class="flex self-end items-center justify-center gap-8">
+            {
+              links.map((l) => (
+                <li>
+                  <a href={l.url} class="flex gap-3 items-center text-2xl">
+                    <l.icon />
+                    {l.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<main class="flex self-center justify-center">
+  <div class="w-[1120px] flex flex-col">
+    <slot />
+  </div>
+</main>
+
+<style></style>
