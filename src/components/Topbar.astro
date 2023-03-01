@@ -1,4 +1,6 @@
 ---
+import Hover from "./Hover.astro";
+
 export interface Props {
   class: string;
 }
@@ -28,22 +30,24 @@ const { class: style } = Astro.props;
       </a>
     </li>
     <li>
-      <div>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 21.135L3 14.135L4.62 12.875L11.99 18.605L19.37 12.865L21 14.135L12 21.135ZM12 16.865L4.63 11.135L3 9.86499L12 2.86499L21 9.86499L19.36 11.135L12 16.865Z"
-            fill="#026CD6"></path>
-        </svg>
-      </div>Tech Stack
+      <a href="#stack">
+        <div>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 21.135L3 14.135L4.62 12.875L11.99 18.605L19.37 12.865L21 14.135L12 21.135ZM12 16.865L4.63 11.135L3 9.86499L12 2.86499L21 9.86499L19.36 11.135L12 16.865Z"
+              fill="#026CD6"></path>
+          </svg>
+        </div>Tech Stack
+      </a>
     </li>
     <li>
-      <a href="#works">
+      <a href="#projects">
         <div>
           <svg
             width="24"
@@ -56,7 +60,7 @@ const { class: style } = Astro.props;
               d="M8.01 18.02L2 12.01L8.01 6L9.425 7.414L4.825 12.014L9.425 16.614L8.011 18.02H8.01ZM15.989 18.02L14.576 16.607L19.176 12.007L14.576 7.407L15.99 6L22 12.01L15.99 18.02H15.989Z"
               fill="#026CD6"></path>
           </svg>
-        </div>Works
+        </div>Projects
       </a>
     </li>
     <li>
@@ -104,24 +108,27 @@ const { class: style } = Astro.props;
       Blog
     </li>
     <li>
-      <div>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20 20H4C2.89543 20 2 19.1046 2 18V5.913C2.04661 4.84255 2.92853 3.99899 4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20ZM4 7.868V18H20V7.868L12 13.2L4 7.868ZM4.8 6L12 10.8L19.2 6H4.8Z"
-            fill="#026CD6"></path>
-        </svg>
-      </div>
-      Contact
+      <Hover hoverClass="top-[100%]" class="flex">
+        <div slot="hover" class="cursor-text">luis@laincode.com</div>
+        <div>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 20H4C2.89543 20 2 19.1046 2 18V5.913C2.04661 4.84255 2.92853 3.99899 4 4H20C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20ZM4 7.868V18H20V7.868L12 13.2L4 7.868ZM4.8 6L12 10.8L19.2 6H4.8Z"
+              fill="#026CD6"></path>
+          </svg>
+        </div>
+        <a href="mailto:luis@laincode.com">Contact</a>
+      </Hover>
     </li>
   </ul>
   <ul class="justify-self-end">
-    <li>2023</li>
+    <li></li>
   </ul>
 </div>
 <style lang="scss">

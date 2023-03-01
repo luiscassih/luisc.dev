@@ -18,7 +18,7 @@ import VuejsIcon from "../assets/icons/vuejs.astro";
 import Hover from "../components/Hover.astro";
 
 
-enum Tech {
+export enum Tech {
   JS,
   TS,
   REACT,
@@ -30,7 +30,7 @@ enum Tech {
   VUE,
 }
 
-const TechStack = {
+export const TechStack = {
   [Tech.JS]: {
     icon: JavascriptIcon,
     name: "Javascript"
@@ -69,10 +69,11 @@ const TechStack = {
   },
 };
 
-const works = [
+export const projects = [
   {
     name: "MeLi Debug",
     page: "meli-debug",
+    description: "A chrome extension to preview and debug visual components by intercepting the server response.",
     tag: "Chrome extension",
     image: MeliDebugImg,
     tech_stack: [Tech.TS, Tech.REACT, Tech.WEBPACK]
@@ -83,6 +84,13 @@ const works = [
     tag: "SSR isomorphic web",
     image: TiendaBebeImg,
     tech_stack: [Tech.TS, Tech.REACT, Tech.NODEJS, Tech.WEBPACK]
+  },
+  {
+    name: "100 Dicen",
+    page: "100-dicen",
+    tag: "A family videogame",
+    image: TiendaBebeImg,
+    tech_stack: [Tech.TS, Tech.REACT, Tech.RUST]
   }
 ];
 ---
@@ -163,7 +171,7 @@ const works = [
           trying to find new techniques to make whatever I’m working better.
         </div>
       </Article>
-      <Article id="stack" title="Tech Stack">
+      <Article title="Tech I've worked with" id="stack">
         <svg
           slot="icon"
           width="32"
@@ -190,7 +198,7 @@ const works = [
           }
         </ul>
       </Article>
-      <Article title="Works" id="works">
+      <Article title="Some projects I made" id="projects">
         <svg
           slot="icon"
           width="32"
@@ -204,47 +212,47 @@ const works = [
             fill="currentcolor"></path>
         </svg>
         <ul class="flex flex-wrap gap-8 justify-center">
-        {works.map(w => (
-          <Hover hoverClass="top-[20%] right-[50%] translate-x-[50%] z-50 bg-black bg-opacity-70">
-          <div slot="hover">Meli Debug</div>
-          <li class="h-[300px] w-[300px] flex flex-col relative hover:cursor-pointer transition-transform hover:outline-[#026CD6] hover:outline-2 hover:outline-dashed hover:rounded-xl">
-          <a href=`/works/${w.page}`>
-            <div class="absolute rounded-xl h-[100%] z-20 w-[100%]"></div>
-            <div class="flex absolute h-[calc(100%-50px)] w-[100%] z-10">
-              <div
-                class="flex flex-1 flex-col justify-end rounded-xl pl-5"
-                style={`background: linear-gradient(to top, #010D19 0%, rgba(1, 13, 25, 0.50) 30%, rgba(1, 13, 25, 0.3) 40%,rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.3) 100%), url(${w.image}); background-size: contain;`}
-              >
-                <div class="text-[1.625rem]">{w.name}</div>
-                <div class="text-xl font-light pb-2">{w.tag}</div>
+        {projects.map(w => (
+          <Hover enabled={!!w.description} hoverClass="bottom-[20%] right-[50%] translate-x-[50%] z-50 bg-black bg-opacity-90 max-w-[500px] text-center">
+            <div slot="hover">{w.description}</div>
+            <li class="h-[300px] w-[300px] flex flex-col relative hover:cursor-pointer transition-transform hover:translate-y-[-0.5rem] hover:outline-[#026CD6] hover:outline-2 hover:outline-dashed hover:rounded-xl">
+            <a href=`/projects/${w.page}`>
+              <div class="absolute rounded-xl h-[100%] z-20 w-[100%]"></div>
+              <div class="flex absolute h-[calc(100%-50px)] w-[100%] z-10">
+                <div
+                  class="flex flex-1 flex-col justify-end rounded-xl pl-5"
+                  style={`background: linear-gradient(to top, #010D19 0%, rgba(1, 13, 25, 0.50) 30%, rgba(1, 13, 25, 0.3) 40%,rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.3) 100%), url(${w.image}); background-size: contain;`}
+                >
+                  <div class="text-[1.625rem]">{w.name}</div>
+                  <div class="text-xl font-light pb-2">{w.tag}</div>
+                </div>
               </div>
-            </div>
-            <div
-              class="flex flex-col bg-[rgba(0,0,0,0.35)] h-[50px] absolute bottom-0 z-10 w-[100%] rounded-b-xl"
-            >
-              <div class="line-gradient h-[1px]"></div>
-              <ul
-                class="flex flex-1 items-center px-5 gap-3 [&>li>svg]:w-[30px] [&>li>svg]:h-[30px]"
+              <div
+                class="flex flex-col bg-[rgba(0,0,0,0.35)] h-[50px] absolute bottom-0 z-10 w-[100%] rounded-b-xl"
               >
-                {w.tech_stack.map(t => {
-                  const Component = TechStack[t].icon;
-                  return <li><Component /></li>;
-                })}
-              </ul>
-            </div>
-          </a>
-          </li>
+                <div class="line-gradient h-[1px]"></div>
+                <ul
+                  class="flex flex-1 items-center px-5 gap-3 [&>li>svg]:w-[30px] [&>li>svg]:h-[30px]"
+                >
+                  {w.tech_stack.map(t => {
+                    const Component = TechStack[t].icon;
+                    return <li><Component /></li>;
+                  })}
+                </ul>
+              </div>
+            </a>
+            </li>
           </Hover>
         ))}
 
         </ul>
       </Article>
     </section>
-    <footer class="mt-52"></footer>
+    <footer class="mt-36"></footer>
   </main>
   <Hover class="GoUpHover !fixed bottom-5 right-5" hoverClass="top-[-50px] left-[-10px]">
     <div slot="hover">Go Up</div>
-    <button id="scrollUpButton" class="flex cursor-pointer [&>svg]:h-14 [&>svg]:fill-white"><GoUpIcon /></button>
+    <button id="scrollUpButton" class="flex cursor-pointer hover:animate-pulse [&>svg]:h-14 [&>svg]:fill-white"><GoUpIcon /></button>
   </Hover>
   <style>
     html[data-scroll='0'] .GoUpHover {
