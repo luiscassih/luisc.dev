@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectLayout from "../../layouts/Projects.astro";
+import TiendaDelBebeImg from "../../assets/images/tiendabebe.png";
+import TiendaDelBebeFigmaImg from "../../assets/images/TiendaFigma.png";
+import BrainIcon from "../../assets/icons/brain.astro";
+import GithubIcon from "../../assets/icons/github.astro";
+import CircledArrowRight from "../../assets/icons/circledArrowRight.astro";
+import Article from "../../components/Article.astro";
+import { projects } from "../../pages/index.astro";
+
+const links = [
+  {
+    icon: CircledArrowRight,
+    url: "asd",
+    label: "Live demo",
+  },
+  {
+    icon: GithubIcon,
+    url: "https://github.com/laincodex/latiendadelbebe",
+    label: "View source on Github",
+  },
+];
+---
+
+<Layout title="Tienda del Bebe">
+  <ProjectLayout
+    title="Tienda Del Bebe"
+    image={TiendaDelBebeImg}
+    links={links}
+    techStack={projects[1].tech_stack}
+  >
+    <div slot="description">
+      La tienda del Bebe is a store's page I did for my family, there they can
+      show info about their products, it also has an admin panel.<br />
+      It's a full featured app composed by an Server Side Rendering Isomorphic app
+      written in typescript, with a docker container setup. Try it yourself, the
+      /admin user is "admin" and password is "admin123"
+    </div>
+    <Article title="How it works">
+      <BrainIcon slot="icon" />
+    </Article>
+    <p class="mb-5 text-xl">
+      It's 100% made by myself without using any framework besides React and
+      Webpack. Uses sqlite to store products, admin and all app related data.
+      <br />
+      As I always do with every project, I start with a figma design.
+      <br />
+    </p>
+    <img class="rounded-2xl" src={TiendaDelBebeFigmaImg} alt="" />
+    <p class="my-5 text-xl">
+      The project is running on a webpack I configured at the time.
+      <br /><br />
+    </p>
+  </ProjectLayout>
+</Layout>

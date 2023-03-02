@@ -46,15 +46,15 @@ const { title, image, links, techStack } = Astro.props;
             stroke-linecap="round"
             stroke-dasharray="16 16"></path>
         </svg>
-        <div class="flex-1 flex flex-col items-center mr-36">
-          <div class="text-4xl mt-5">{title}</div>
+        <div class="flex-1 flex flex-col items-center mr-16">
+          <div class="text-4xl">{title}</div>
           <ul class="flex mt-9 gap-5">
             {
               techStack.map((t) => {
                 const tech = TechStack[t];
                 return (
                   <li>
-                    <Hover>
+                    <Hover class="[&>svg]:w-12 [&>svg]:h-12">
                       <div slot="hover">{tech.name}</div>
                       <tech.icon />
                     </Hover>
@@ -65,21 +65,22 @@ const { title, image, links, techStack } = Astro.props;
           </ul>
         </div>
         <div
-          class="w-[1000px] h-[270px] bg-neutral-800 border-2 border-neutral-700 rounded-lg drop-shadow-xl flex flex-col items-center p-9"
+          class="w-[1000px] min-h-[270px] max-h-[350px] bg-slate-800 border-2 border-slate-700 rounded-lg drop-shadow-xl flex flex-col items-center p-9"
         >
           <span class="flex-1 text-2xl">
-            MeLi Debug is a chrome extension I made for one of my past job, it's
-            a tool to preview Components modifications in the frontend, by
-            intercepting both the server side rendering and all api calls. Then,
-            you can edit the view and override what's being rendered.
+            <slot name="description" />
           </span>
-          <ul class="flex self-end items-center justify-center gap-8">
+          <ul class="flex self-end items-center justify-end gap-8 mt-2">
             {
               links.map((l) => (
-                <li>
-                  <a href={l.url} class="flex gap-3 items-center text-2xl">
+                <li class="">
+                  <a
+                    href={l.url}
+                    target="_blank"
+                    class="flex gap-3 items-center text-2xl [&>svg]:w-9 [&>svg]:h-9"
+                  >
                     <l.icon />
-                    {l.label}
+                    <div class="flex">{l.label}</div>
                   </a>
                 </li>
               ))
@@ -90,9 +91,26 @@ const { title, image, links, techStack } = Astro.props;
     </div>
   </header>
 </div>
-<main class="flex self-center justify-center">
-  <div class="w-[1120px] flex flex-col">
+<main class="flex self-center items-center flex-col">
+  <div class="w-[1000px] flex flex-col">
     <slot />
+  </div>
+  <div class="w-[1120px] flex">
+    <svg
+      width="71"
+      height="69"
+      viewBox="0 0 71 69"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="rotate-180 mb-12"
+    >
+      <path
+        d="M4 4H67V65M13.3978 15.569H55.5138V56.2356"
+        stroke="white"
+        stroke-width="8"
+        stroke-linecap="round"
+        stroke-dasharray="16 16"></path>
+    </svg>
   </div>
 </main>
 

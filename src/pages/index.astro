@@ -2,10 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import Topbar from "../components/Topbar.astro";
 import Article from "../components/Article.astro";
+import Hover from "../components/Hover.astro";
+
 import MeliDebugImg from "../assets/images/MeliDebugApiInterceptor.png";
 import TiendaBebeImg from "../assets/images/tiendabebe.png";
-import GoUpIcon from "../assets/icons/GoUp.astro";
 
+import GoUpIcon from "../assets/icons/GoUp.astro";
 import JavascriptIcon from "../assets/icons/javascript.astro";
 import TypescriptIcon from "../assets/icons/typescript.astro";
 import ReactJSIcon from "../assets/icons/reactjs.astro";
@@ -15,7 +17,7 @@ import JavaIcon from "../assets/icons/java.astro";
 import NodejsIcon from "../assets/icons/nodejs.astro";
 import RustIcon from "../assets/icons/rust.astro";
 import VuejsIcon from "../assets/icons/vuejs.astro";
-import Hover from "../components/Hover.astro";
+import DockerIcon from "../assets/icons/docker.astro";
 
 
 export enum Tech {
@@ -28,6 +30,7 @@ export enum Tech {
   NODEJS,
   RUST,
   VUE,
+  DOCKER,
 }
 
 export const TechStack = {
@@ -67,6 +70,10 @@ export const TechStack = {
     icon: VuejsIcon,
     name: "VueJS",
   },
+  [Tech.DOCKER]: {
+    icon: DockerIcon,
+    name: "Docker",
+  },
 };
 
 export const projects = [
@@ -81,9 +88,10 @@ export const projects = [
   {
     name: "La Tienda del Bebe",
     page: "tienda-del-bebe",
+    description: "A store page with server side rendering react and an admin panel.",
     tag: "SSR isomorphic web",
     image: TiendaBebeImg,
-    tech_stack: [Tech.TS, Tech.REACT, Tech.NODEJS, Tech.WEBPACK]
+    tech_stack: [Tech.TS, Tech.REACT, Tech.NODEJS, Tech.WEBPACK, Tech.DOCKER]
   },
   {
     name: "100 Dicen",
@@ -91,7 +99,38 @@ export const projects = [
     tag: "A family videogame",
     image: TiendaBebeImg,
     tech_stack: [Tech.TS, Tech.REACT, Tech.RUST]
-  }
+  },
+  {
+    name: "SSR-React-base",
+    page: "ssr-react-base",
+    tag: "Template SSR React app for my projects",
+    image: TiendaBebeImg,
+    tech_stack: [Tech.TS, Tech.REACT, Tech.TAILWIND, Tech.NODEJS, Tech.WEBPACK, Tech.DOCKER]
+  }, 
+  {
+    name: "GitWrapper",
+    page: "gitwrapper",
+    description: "A CLI written in rust to use a different ssh private key on git, ideal for those who travel or simply want to have a separate key for work/personal use.",
+    tag: "CLI tool for Git ssh keys",
+    image: TiendaBebeImg,
+    tech_stack: [Tech.RUST]
+  }, 
+  {
+    name: "yaDNS-NX",
+    page: "yadns-nx",
+    description: "A docker container for a DNS server that enables network connections to Nintendo Switch by intercepting connection to Nintendo's servers.",
+    tag: "DNS for Nintendo Switch homebrew users",
+    image: TiendaBebeImg,
+    tech_stack: [Tech.DOCKER]
+  }, 
+  {
+    name: "Dockeryze",
+    page: "dockeryze",
+    description: "SSR webapp to manage docker templates and instances of your app, for those who need to quickly deploy a test environment of your company's app",
+    tag: "Webapp to manage apps instances",
+    image: TiendaBebeImg,
+    tech_stack: [Tech.NODEJS, Tech.VUE, Tech.DOCKER]
+  }, 
 ];
 ---
 

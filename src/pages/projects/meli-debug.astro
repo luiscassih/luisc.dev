@@ -24,15 +24,37 @@ const links = [
     links={links}
     techStack={projects[0].tech_stack}
   >
+    <div slot="description">
+      MeLi Debug is a chrome extension I made for one of my past job, it's a
+      tool to preview Components modifications in the frontend, by intercepting
+      both the server side rendering and all api calls. Providing an UI where
+      you can edit the view and override what's being rendered.
+    </div>
     <Article title="How it works">
       <BrainIcon slot="icon" />
     </Article>
     <p class="mb-5 text-xl">
-      Let's see an example of intercepting an API call.
+      The extension intercepts the response from the page and look if there's
+      "Bricks", Bricks are like components in this architecture, those bricks
+      are handled by a renderer that creates a React component using the Brick
+      data.<br />
+      If bricks are detected it will show it's content in the UI, and let's you edit
+      the bricks to apply everytime you refresh the site. Developers can use this
+      extension to see how a Brick is being a rendered in a frontend on Production
+      without the need to deploy any backend.
+      <br />
     </p>
     <img class="rounded-2xl" src={MeliDebugExampleImg} alt="" />
     <p class="my-5 text-xl">
-      So, we changed the JSON from the call /metricas/api/sales-performance
+      In the example above we changed the JSON from the call
+      /metricas/api/sales-performance and edited the brick data to show other
+      info, and when applied it will automatically show on the site.
+      <br /><br />
+      The way it works is running a proxy in two part of the pipeline, one in the
+      setter of the global variable window.__PRELOADED_STATE__ which is commonly
+      used in a lot of Server Side Rendering apps, so we can edit the value of the
+      variable while is being assigned. The other proxy is to every XMLHttpRequest
+      call and if this correspond to an /api call, we intercept it's value.
     </p>
   </ProjectLayout>
 </Layout>
