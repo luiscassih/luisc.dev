@@ -135,14 +135,14 @@ export const projects = [
 ---
 
 <Layout title="Luis Cassih - Software Developer">
-  <Topbar class="flex h-[50px] px-5" />
+  <Topbar class="flex justify-center xl:justify-start h-40 xl:h-[50px] xl:px-5" />
   <main class="flex flex-col">
-    <div class="flex flex-col h-[calc(100vh-50px)]">
-      <div class="flex justify-center items-center flex-1">
-        <div class="w-[270px] h-[270px]">
+  <!-- calculate height minus topbar height -->
+    <div class="flex flex-col h-[calc(100*var(--vh)-10rem)] xl:h-[calc(100vh-50px)]">
+      <div class="flex flex-col xl:flex-row justify-center items-center flex-1">
+        <div class="xl:p-5">
           <svg
-            width="250"
-            height="250"
+            class="h-[25em] xl:h-[250px]"
             viewBox="0 0 250 250"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -165,17 +165,16 @@ export const projects = [
               fill="#0f0f0f"></path>
           </svg>
         </div>
-        <h1 class="font-normal">
+        <h1 class="font-normal text-7xl xl:text-5xl">
           Hi! My name is <span class="text-gradient">Luis Cassih,</span>
           <br />I'm a <span class="text-gradient">Software Developer</span>
         </h1>
       </div>
-      <a href="#about" class="flex flex-col items-center">
-        <div>Scroll to know about me</div>
-        <div class="py-5">
+      <a href="#about" class="flex flex-col items-center h-[20em] xl:h-auto">
+        <div class="text-6xl xl:text-2xl">Scroll to know about me</div>
+        <div class="py-10 xl:py-5">
           <svg
-            width="50"
-            height="50"
+            class="h-28 xl:h-12"
             viewBox="0 0 50 50"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -191,8 +190,6 @@ export const projects = [
       <Article id="about" title="About">
         <svg
           slot="icon"
-          width="32"
-          height="32"
           viewBox="0 0 32 32"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -200,7 +197,7 @@ export const projects = [
             d="M26.6667 26.6667H5.33335C3.90738 26.7093 2.71525 25.5911 2.66669 24.1653V7.83335C2.71523 6.40776 3.90759 5.28992 5.33335 5.33335H26.6667C28.0924 5.28992 29.2848 6.40776 29.3334 7.83335V24.1667C29.284 25.5919 28.0922 26.7093 26.6667 26.6667ZM5.33335 8.00001V23.9853L26.6667 24V8.01468L5.33335 8.00001ZM17.9067 21.3333H8.00002C8.09806 20.2295 8.62047 19.2065 9.45735 18.48C10.3891 17.5556 11.6411 17.0256 12.9534 17C14.2656 17.0256 15.5176 17.5556 16.4494 18.48C17.286 19.2068 17.8084 20.2295 17.9067 21.3333ZM24 20H20V17.3333H24V20ZM12.9534 16C12.2388 16.0248 11.546 15.7519 11.0404 15.2463C10.5348 14.7407 10.2619 14.0479 10.2867 13.3333C10.2623 12.6189 10.5354 11.9263 11.0408 11.4208C11.5463 10.9153 12.2389 10.6423 12.9534 10.6667C13.6678 10.6423 14.3604 10.9153 14.8659 11.4208C15.3714 11.9263 15.6444 12.6189 15.62 13.3333C15.6448 14.0479 15.3719 14.7407 14.8663 15.2463C14.3607 15.7519 13.6679 16.0248 12.9534 16ZM24 14.6667H18.6667V12H24V14.6667Z"
             fill="currentcolor"></path>
         </svg>
-        <div class="text-2xl">
+        <div class="text-6xl xl:text-2xl">
           I’m a creative developer who’s specialized in frontend technologies
           but doesn’t mind to work with any tech stack, from backend with
           Java/NodeJS/Rust to ReactJS/Vue and Flutter for mobile. I love
@@ -213,8 +210,6 @@ export const projects = [
       <Article title="Tech I've worked with" id="stack">
         <svg
           slot="icon"
-          width="32"
-          height="32"
           viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -227,11 +222,11 @@ export const projects = [
           {
             Object.values(TechStack).map((s) => (
               <li class="flex items-center">
-                <div class="mr-2">
+                <div class="mr-2 [&>svg]:h-28 [&>svg]:xl:h-12 ">
                   <!-- <Fragment set:html={s.icon} /> -->
                   <s.icon />
                 </div>
-                <div class="text-2xl font-bold">{s.name}</div>
+                <div class="text-5xl xl:text-2xl font-bold">{s.name}</div>
               </li>
             ))
           }
@@ -240,8 +235,6 @@ export const projects = [
       <Article title="Some projects I made" id="projects">
         <svg
           slot="icon"
-          width="32"
-          height="32"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -254,10 +247,10 @@ export const projects = [
         {projects.map(w => (
           <Hover enabled={!!w.description} hoverClass="bottom-[20%] right-[50%] translate-x-[50%] z-50 bg-black bg-opacity-90 max-w-[500px] text-center">
             <div slot="hover">{w.description}</div>
-            <li class="h-[300px] w-[300px] flex flex-col relative hover:cursor-pointer transition-transform hover:translate-y-[-0.5rem] hover:outline-[#026CD6] hover:outline-2 hover:outline-dashed hover:rounded-xl">
+            <li class="w-[calc(80*var(--vw))] h-[calc(80*var(--vw))] xl:h-[300px] xl:w-[300px] flex flex-col relative hover:cursor-pointer transition-transform hover:translate-y-[-0.5rem] hover:outline-[#026CD6] hover:outline-2 hover:outline-dashed hover:rounded-xl">
             <a href=`/projects/${w.page}`>
               <div class="absolute rounded-xl h-[100%] z-20 w-[100%]"></div>
-              <div class="flex absolute h-[calc(100%-50px)] w-[100%] z-10">
+              <div class="flex absolute h-[70%] xl:h-[calc(100%-50px)] w-[100%] z-10">
                 <div
                   class="flex flex-1 flex-col justify-end rounded-xl pl-5"
                   style={`background: linear-gradient(to top, #010D19 0%, rgba(1, 13, 25, 0.50) 30%, rgba(1, 13, 25, 0.3) 40%,rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.3) 100%), url(${w.image}); background-size: contain;`}
@@ -267,7 +260,7 @@ export const projects = [
                 </div>
               </div>
               <div
-                class="flex flex-col bg-[rgba(0,0,0,0.35)] h-[50px] absolute bottom-0 z-10 w-[100%] rounded-b-xl"
+                class="flex flex-col bg-[rgba(0,0,0,0.35)] h-[30%] xl:h-[50px] absolute bottom-0 z-10 w-[100%] rounded-b-xl"
               >
                 <div class="line-gradient h-[1px]"></div>
                 <ul
@@ -289,9 +282,9 @@ export const projects = [
     </section>
     <footer class="mt-36"></footer>
   </main>
-  <Hover class="GoUpHover !fixed bottom-5 right-5" hoverClass="top-[-50px] left-[-10px]">
+  <Hover class="GoUpHover !fixed bottom-20 right-20 xl:bottom-5 xl:right-5" hoverClass="top-[-50px] left-[-10px]">
     <div slot="hover">Go Up</div>
-    <button id="scrollUpButton" class="flex cursor-pointer hover:animate-pulse [&>svg]:h-14 [&>svg]:fill-white"><GoUpIcon /></button>
+    <button id="scrollUpButton" class="flex cursor-pointer hover:animate-pulse [&>svg]:h-32 [&>svg]:xl:h-14 [&>svg]:fill-white"><GoUpIcon /></button>
   </Hover>
   <style>
     html[data-scroll='0'] .GoUpHover {

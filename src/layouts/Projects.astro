@@ -6,7 +6,7 @@ import { Tech, TechStack } from "../pages/index.astro";
 export interface Props {
   title: string;
   image: string;
-  links: Link[];
+  links?: Link[];
   techStack: Tech[];
 }
 
@@ -72,18 +72,19 @@ const { title, image, links, techStack } = Astro.props;
           </span>
           <ul class="flex self-end items-center justify-end gap-8 mt-2">
             {
-              links.map((l) => (
-                <li class="">
-                  <a
-                    href={l.url}
-                    target="_blank"
-                    class="flex gap-3 items-center text-2xl [&>svg]:w-9 [&>svg]:h-9"
-                  >
-                    <l.icon />
-                    <div class="flex">{l.label}</div>
-                  </a>
-                </li>
-              ))
+              links &&
+                links.map((l) => (
+                  <li class="">
+                    <a
+                      href={l.url}
+                      target="_blank"
+                      class="flex gap-3 items-center text-2xl [&>svg]:w-9 [&>svg]:h-9"
+                    >
+                      <l.icon />
+                      <div class="flex">{l.label}</div>
+                    </a>
+                  </li>
+                ))
             }
           </ul>
         </div>

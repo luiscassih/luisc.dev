@@ -21,7 +21,6 @@ const links = [
   <ProjectLayout
     title="MeLi Debug"
     image={MeliDebugImg}
-    links={links}
     techStack={projects[0].tech_stack}
   >
     <div slot="description">
@@ -47,8 +46,10 @@ const links = [
     <img class="rounded-2xl" src={MeliDebugExampleImg} alt="" />
     <p class="my-5 text-xl">
       In the example above we changed the JSON from the call
-      /metricas/api/sales-performance and edited the brick data to show other
-      info, and when applied it will automatically show on the site.
+      /metricas/api/sales-performance and edited the brick with other data, and
+      when applied it will automatically show on the site.
+      <br /> with this you can test how the brick renderer handles different datatype
+      and all those "what if".
       <br /><br />
       The way it works is running a proxy in two part of the pipeline, one in the
       setter of the global variable window.__PRELOADED_STATE__ which is commonly
