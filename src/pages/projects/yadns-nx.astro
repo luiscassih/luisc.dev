@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectLayout from "../../layouts/Projects.astro";
+import YadnsImg from "../../assets/images/yadns.png";
+import BrainIcon from "../../assets/icons/brain.astro";
+import GithubIcon from "../../assets/icons/github.astro";
+import DockerIcon from "../../assets/icons/docker.astro";
+import Article from "../../components/Article.astro";
+import { projects } from "../../pages/index.astro";
+
+const links = [
+  {
+    icon: DockerIcon,
+    url: "https://hub.docker.com/r/luiscassih/yadns-nx",
+    label: "View on Docker Hub",
+  },
+  {
+    icon: GithubIcon,
+    url: "https://github.com/laincodex/yaDNS-NX",
+    label: "View source on Github",
+  },
+];
+---
+
+<Layout title="yaDNS-NX">
+  <ProjectLayout
+    title="yaDNS-NX"
+    image={YadnsImg}
+    links={links}
+    techStack={projects[6].tech_stack}
+  >
+    <div slot="description">
+      yaDNS-NX is an nginx+bind9 server to allow the Nintendo Switch to connect
+      without having internet. Also it can be used to DNS block nintendo
+      services.
+    </div>
+    <Article title="How it works">
+      <BrainIcon slot="icon" />
+    </Article>
+    <p class="mb-5">
+      This docker container is aimed for those who have a moded Nintendo Switch
+      and want to use Homebrew apps without the need to ping nintendo, or if you
+      want to connect to a offline local network.
+    </p>
+    <p class="my-5">
+      <br /><br />
+    </p>
+  </ProjectLayout>
+</Layout>
