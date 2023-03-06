@@ -18,43 +18,45 @@ export type Link = {
 const { title, image, links, techStack } = Astro.props;
 ---
 
-<div class="flex flex-col">
-  <header class="flex flex-col my-5">
-    <div class="flex mb-5">
+<div class="flex flex-col items-center">
+  <header class="flex flex-col w-[calc(100*var(--vw))] xl:w-[1120px] my-5">
+    <div class="flex mb-5 justify-between items-center">
       <a
         href="/#projects"
-        class="[&>svg]:fill-white hover:animate-pulse [&>svg]:w-8 ml-5 z-10"
+        class="[&>svg]:fill-white hover:animate-pulse [&>svg]:h-32 [&>svg]:xl:w-12 ml-5 z-10"
         ><GoBack /></a
       >
+      <svg
+        width="71"
+        height="69"
+        viewBox="0 0 71 69"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H67V65M13.3978 15.569H55.5138V56.2356"
+          stroke="white"
+          stroke-width="8"
+          stroke-linecap="round"
+          stroke-dasharray="16 16"></path>
+      </svg>
     </div>
     <div class="flex justify-center">
       <div
-        class="flex flex-col w-[1120px] h-[550px] items-end bg-no-repeat rounded-xl"
+        class="flex flex-col w-[90%] h-[550px] items-end bg-no-repeat rounded-xl mt-[250px] xl:mt-0"
         style=`background-image: url('${image}'); background-size: auto 450px;`
       >
-        <svg
-          width="71"
-          height="69"
-          viewBox="0 0 71 69"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="flex-1 flex flex-col items-center xl:mt-16 xl:mr-16 mt-[-250px] self-center xl:self-end"
         >
-          <path
-            d="M4 4H67V65M13.3978 15.569H55.5138V56.2356"
-            stroke="white"
-            stroke-width="8"
-            stroke-linecap="round"
-            stroke-dasharray="16 16"></path>
-        </svg>
-        <div class="flex-1 flex flex-col items-center mr-16">
-          <div class="text-4xl">{title}</div>
+          <div class="text-7xl xl:text-4xl">{title}</div>
           <ul class="flex mt-9 gap-5">
             {
               techStack.map((t) => {
                 const tech = TechStack[t];
                 return (
                   <li>
-                    <Hover class="[&>svg]:w-12 [&>svg]:h-12">
+                    <Hover class="[&>svg]:h-24 [&>svg]:xl:h-12">
                       <div slot="hover">{tech.name}</div>
                       <tech.icon />
                     </Hover>
@@ -65,7 +67,7 @@ const { title, image, links, techStack } = Astro.props;
           </ul>
         </div>
         <div
-          class="w-[1000px] min-h-[270px] max-h-[350px] bg-slate-800 border-2 border-slate-700 rounded-lg drop-shadow-xl flex flex-col items-center p-9"
+          class="w-[800px] min-h-[270px] max-h-[350px] bg-slate-800 border-2 border-slate-700 rounded-lg drop-shadow-xl flex flex-col items-center p-9"
         >
           <span class="flex-1 text-2xl">
             <slot name="description" />
@@ -93,7 +95,7 @@ const { title, image, links, techStack } = Astro.props;
   </header>
 </div>
 <main class="flex self-center items-center flex-col">
-  <div class="w-[1000px] flex flex-col">
+  <div class="w-[1000px] flex flex-col text-4xl xl:text-xl">
     <slot />
   </div>
   <div class="w-[1120px] flex">

@@ -11,14 +11,15 @@ const { title, id } = Astro.props;
   class="flex flex-col w-[calc(100*var(--vw))] px-20 xl:px-0 xl:w-[1120px]"
 >
   <div class="flex flex-col py-20 xl:py-5">
-    <div class="flex xl:h-12 items-center">
-      <div class="text-[#026CD6] [&>svg]:w-24 xl:[&>svg]:w-8">
+    <div class="flex mb-2 xl:mb-0 xl:h-12 items-center">
+      <div class="text-[#026CD6] [&>svg]:h-24 [&>svg]:xl:h-8">
         <slot name="icon" />
       </div>
-      <div class="pl-3 text-7xl xl:text-2xl">{title}</div>
+      <div class="pl-7 xl:pl-3 text-7xl xl:text-2xl">{title}</div>
     </div>
     <div class="flex">
-      <div class="line-gradient h-[1px] min-w-[500px]"></div>
+      <div class="line-gradient h-1 xl:h-[1px] min-w-[50rem] xl:min-w-[500px]">
+      </div>
     </div>
   </div>
   <div><slot /></div>

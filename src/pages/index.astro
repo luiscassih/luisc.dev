@@ -255,16 +255,16 @@ export const projects = [
                   class="flex flex-1 flex-col justify-end rounded-xl pl-5"
                   style={`background: linear-gradient(to top, #010D19 0%, rgba(1, 13, 25, 0.50) 30%, rgba(1, 13, 25, 0.3) 40%,rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.3) 100%), url(${w.image}); background-size: contain;`}
                 >
-                  <div class="text-[1.625rem]">{w.name}</div>
-                  <div class="text-xl font-light pb-2">{w.tag}</div>
+                  <div class="text-7xl xl:text-[1.625rem]">{w.name}</div>
+                  <div class="text-5xl xl:text-xl font-light pb-2">{w.tag}</div>
                 </div>
               </div>
               <div
                 class="flex flex-col bg-[rgba(0,0,0,0.35)] h-[30%] xl:h-[50px] absolute bottom-0 z-10 w-[100%] rounded-b-xl"
               >
-                <div class="line-gradient h-[1px]"></div>
+                <div class="line-gradient h-1 xl:h-[1px]"></div>
                 <ul
-                  class="flex flex-1 items-center px-5 gap-3 [&>li>svg]:w-[30px] [&>li>svg]:h-[30px]"
+                  class="flex flex-1 items-center px-5 gap-3 [&>li>svg]:h-28 xl:[&>li>svg]:w-[30px] xl:[&>li>svg]:h-[30px]"
                 >
                   {w.tech_stack.map(t => {
                     const Component = TechStack[t].icon;
@@ -284,7 +284,7 @@ export const projects = [
   </main>
   <Hover class="GoUpHover !fixed bottom-20 right-20 xl:bottom-5 xl:right-5" hoverClass="top-[-50px] left-[-10px]">
     <div slot="hover">Go Up</div>
-    <button id="scrollUpButton" class="flex cursor-pointer hover:animate-pulse [&>svg]:h-32 [&>svg]:xl:h-14 [&>svg]:fill-white"><GoUpIcon /></button>
+    <button id="scrollUpButton" class="flex cursor-pointer hover:animate-pulse [&>svg]:h-48 [&>svg]:xl:h-14 [&>svg]:fill-white"><GoUpIcon /></button>
   </Hover>
   <style>
     html[data-scroll='0'] .GoUpHover {
