@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectLayout from "../../layouts/Projects.astro";
+import GitWrapperImg from "../../assets/images/gitwrapper.png";
+import BrainIcon from "../../assets/icons/brain.astro";
+import GithubIcon from "../../assets/icons/github.astro";
+import Article from "../../components/Article.astro";
+import { projects } from "../../pages/index.astro";
+
+const links = [
+  {
+    icon: GithubIcon,
+    url: "https://github.com/laincodex/gitwrapper",
+    label: "View source on Github",
+  },
+];
+---
+
+<Layout title="GitWrapper">
+  <ProjectLayout
+    title="GitWrapper"
+    image={GitWrapperImg}
+    links={links}
+    techStack={projects[5].tech_stack}
+  >
+    <div slot="description">
+      GitWrapper is a CLI tool I made in Rust to wrap the git command to be able
+      to use another ssh key without adding it to the key agent. <br /> This way,
+      you can use a different private ssh key file while using a git repository.
+    </div>
+    <Article title="How it works">
+      <BrainIcon slot="icon" />
+    </Article>
+    <p class="mb-5">
+      Imagine the situation where you are in your work's computer and you need
+      to download a private repository you own. Using this wrapper you don't
+      need to create a new ssh key or import to the computer's key agent, you
+      just simply configure this wrapper to use your key.
+      <br />
+      <br />
+    </p>
+    <p class="my-5">
+      <br /><br />
+    </p>
+  </ProjectLayout>
+</Layout>

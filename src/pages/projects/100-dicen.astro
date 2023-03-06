@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectLayout from "../../layouts/Projects.astro";
+import CienDicenImg from "../../assets/images/100dicen.png";
+import CienDicenAdminImg from "../../assets/images/100dicenAdmin.png";
+import BrainIcon from "../../assets/icons/brain.astro";
+import Article from "../../components/Article.astro";
+import { projects } from "../../pages/index.astro";
+---
+
+<Layout title="100 Dicen">
+  <ProjectLayout
+    title="100 Dicen"
+    image={CienDicenImg}
+    techStack={projects[2].tech_stack}
+  >
+    <div slot="description">
+      100 Dicen is a game inspired by TV shows like 100 Argentinos Dicen and
+      Family Feud. In this game, two families compete in a Popular Questions
+      quiz and keep gaining points. This project let's you manage those
+      questions, and be able to play this show in your home.
+    </div>
+    <Article title="How it works">
+      <BrainIcon slot="icon" />
+    </Article>
+    <p class="mb-5">
+      100 Dicen it's being made using a combination of Tauri with a Rust backend
+      and Vite/VueJS frontend. Tauri set up a webview desktop application like
+      Electron, and in this project I use Vue as the frontend engine.
+      <br />
+      I need to keep two windows, one for displaying in a TV or extra monitor (o
+      stream), and the other for management of the current game.
+      <br />
+    </p>
+    <img class="rounded-2xl" src={CienDicenAdminImg} alt="" />
+    <p class="my-5">
+      In the admin panel, you can view the current game status, what question is
+      being displayed, how many points, you can see the next question, change if
+      it's too hard, and go on. You can really start your own TV show using this
+      app.
+      <br /><br />
+      The game is not yet available for the public, but I'm thinking about releasing
+      it for free.
+    </p>
+  </ProjectLayout>
+</Layout>

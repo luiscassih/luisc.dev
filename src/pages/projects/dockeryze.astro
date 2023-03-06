@@ -1,0 +1,56 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectLayout from "../../layouts/Projects.astro";
+import DockeryzeImg from "../../assets/images/dockeryze.png";
+import DockeryzeLoginImg from "../../assets/images/dockeryzeLogin.png";
+import BrainIcon from "../../assets/icons/brain.astro";
+import CircledArrowRight from "../../assets/icons/circledArrowRight.astro";
+import Article from "../../components/Article.astro";
+import { projects } from "../../pages/index.astro";
+
+const links = [
+  {
+    icon: CircledArrowRight,
+    url: "https://dockeryze.laincode.com/",
+    label: "Live demo",
+  },
+];
+---
+
+<Layout title="Dockeryze">
+  <ProjectLayout
+    title="Dockeryze"
+    image={DockeryzeImg}
+    links={links}
+    techStack={projects[3].tech_stack}
+  >
+    <div slot="description">
+      Dockeryze is an webapp for managing docker templates of your company's
+      application. It's aimed for small teams to deploy instances of your
+      application and test the latest changes easier. Ideal for onprem apps.
+      <br />
+      While the project is still in development, you can try the frontend, the user
+      is "admin@admin.com" and password is "admin"
+    </div>
+    <Article title="How it works">
+      <BrainIcon slot="icon" />
+    </Article>
+    <p class="mb-5">
+      <br />
+      You're a small team and you decide to start developing a product, it's a webapp
+      and you need to be able to iterate quickly between deploys and testing. Also
+      you don't want to pay a lot for infrastructure, so you decide to have a local
+      server, Dockeryze will let you to to configure a template of your application
+      and easily create or destroy production or QA instances. So a developer can
+      have a name.qa.yourappdomain.com instance up running and accessible for testing
+      the latest iteration.
+      <br />
+    </p>
+    <img class="rounded-2xl" src={DockeryzeLoginImg} alt="" />
+    <p class="my-5">
+      Dockeryze will also be compatible to user management where you can
+      configure which users can deploy an instance or make changes to
+      production.
+    </p>
+  </ProjectLayout>
+</Layout>
