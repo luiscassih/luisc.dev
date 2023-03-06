@@ -47,10 +47,10 @@ const { title, image, links, techStack } = Astro.props;
         style=`background-image: url('${image}'); background-size: auto 450px;`
       >
         <div
-          class="flex-1 flex flex-col items-center xl:mt-16 xl:mr-16 mt-[-250px] self-center xl:self-end"
+          class="flex-1 flex flex-col items-center xl:mt-16 xl:mr-0 mt-[-250px] self-center xl:self-end"
         >
           <div class="text-7xl xl:text-4xl">{title}</div>
-          <ul class="flex mt-9 gap-5">
+          <ul class="flex mt-9 gap-5 xl:gap-1">
             {
               techStack.map((t) => {
                 const tech = TechStack[t];

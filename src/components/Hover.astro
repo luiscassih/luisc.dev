@@ -7,10 +7,10 @@ export interface Props {
 const { class: style, hoverClass, enabled = true } = Astro.props;
 ---
 
-<div class=`${style} relative flex toggle-visible z-50`>
+<div class=`${style} relative flex toggle-visible`>
   { enabled &&
   <div
-    class=` ${hoverClass ? hoverClass : 'top-[calc(100%+10px)] left-[50%] translate-x-[-50%]' } opacity-0 invisible absolute flex outline-white outline-dashed outline-2 p-2 rounded-xl w-max`
+    class=` ${hoverClass ? hoverClass : 'top-[calc(100%+10px)] left-[50%] translate-x-[-50%]' } opacity-0 invisible absolute flex outline-white outline-dashed outline-2 p-2 rounded-xl w-max z-50`
   >
     <slot name="hover" />
   </div>
