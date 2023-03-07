@@ -48,14 +48,15 @@ const links = [
       In the example above we changed the JSON from the call
       /metricas/api/sales-performance and edited the brick with other data, and
       when applied it will automatically show on the site.
-      <br /> with this you can test how the brick renderer handles different datatype
-      and all those "what if".
+      <br /> With this you can test how the brick renderer handles different types
+      of data and all those "what if I send this in the brick instead of".
       <br /><br />
       The way it works is running a proxy in two part of the pipeline, one in the
       setter of the global variable window.__PRELOADED_STATE__ which is commonly
       used in a lot of Server Side Rendering apps, so we can edit the value of the
-      variable while is being assigned. The other proxy is to every XMLHttpRequest
-      call and if this correspond to an /api call, we intercept it's value.
+      variable while is being assigned at the moment the browser is executing the
+      client. The other proxy is to every XMLHttpRequest call checking if corresponds
+      to an /api call so we intercept it's value.
     </p>
   </ProjectLayout>
 </Layout>

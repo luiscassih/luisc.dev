@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import ProjectLayout from "../../layouts/Projects.astro";
 import TiendaDelBebeImg from "../../assets/images/tiendabebe.png";
 import TiendaDelBebeFigmaImg from "../../assets/images/TiendaFigma.png";
+import TiendaBebeAdminImg from "../../assets/images/TiendaBebeAdmin.png";
 import BrainIcon from "../../assets/icons/brain.astro";
 import GithubIcon from "../../assets/icons/github.astro";
 import CircledArrowRight from "../../assets/icons/circledArrowRight.astro";
@@ -41,16 +42,16 @@ const links = [
       <BrainIcon slot="icon" />
     </Article>
     <p class="mb-5">
-      It's 100% made by myself without using any framework besides React and
-      Webpack. Uses sqlite to store products, admin and all app related data.
-      <br />
-      As I always do with every project, I start with a figma design.
+      I designed and made the UI without using any framework besides React and
+      Webpack. Used sqlite to store products, admin and all related data.
       <br />
     </p>
     <img class="rounded-2xl" src={TiendaDelBebeFigmaImg} alt="" />
     <p class="my-5">
-      The project is running on a webpack I configured at the time.
-      <br /><br />
+      As this store is aimed to be used by a non technical person, I made the
+      admin panel to be easy to use.
+      <br />
     </p>
+    <img class="rounded-2xl" src={TiendaBebeAdminImg} alt="" />
   </ProjectLayout>
 </Layout>
