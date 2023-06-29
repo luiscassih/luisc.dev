@@ -4,6 +4,6 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
-  site: 'https://portfolio.laincode.com',
+  site: 'https://luisc.dev',
   integrations: [tailwind()]
 });
